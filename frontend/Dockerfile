@@ -39,4 +39,5 @@ server {\n\
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["sleep", "20000"]
+#CMD ["nginx", "-g", "daemon off;"]
