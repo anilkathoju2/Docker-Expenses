@@ -1,7 +1,7 @@
 FROM node:20
 RUN useradd expense
 WORKDIR /app
-COPY /backend .
+COPY backend/ .
 RUN npm install
 ENV DB_HOST="mysql"
 CMD ['node', 'index.js']
