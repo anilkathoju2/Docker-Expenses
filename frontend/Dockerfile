@@ -8,6 +8,6 @@ RUN rm -rf /etc/nginx/nginx.conf \
     && chmod -R 755 /etc/nginx/
 
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY dist /usr/share/nginx/html      # ← CHANGE THIS
+COPY dist /usr/share/nginx/html
 
 USER nginx
