@@ -1,15 +1,15 @@
 FROM nginx:mainline-alpine3.20-slim
 
-# Remove default nginx webpage
+# Remove default nginx files
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy your static frontend files
-COPY . /usr/share/nginx/html
+# Copy ONLY frontend build files
+COPY index.html /usr/share/nginx/html/
+COPY asset-manifest.json /usr/share/nginx/html/
+COPY robots.txt /usr/share/nginx/html/
+COPY static /usr/share/nginx/html/static
 
-# Global nginx configuration (you can keep default)
-# If you have a custom nginx.conf, copy it here:
-# COPY nginx.conf /etc/nginx/nginx.conf
-
+# Add reverse proxy config
 RUN mkdir -p /etc/nginx/conf.d
 
 RUN printf "server {\n\
